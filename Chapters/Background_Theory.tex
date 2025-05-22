@@ -1,0 +1,67 @@
+\chapter{BACKGROUND THEORY}
+
+%\section{Electromyography signals}
+Speech-to-text, or Automatic Speech Recognition (ASR), refers to the process of converting spoken audio signals into written text. This involves a sequence of steps including feature extraction, acoustic modeling, language modeling, and decoding. For Nepali, a morphologically rich and low-resource language, building an accurate ASR system presents unique challenges such as lack of large-scale labeled datasets and variability in dialects.
+% \par
+% Detection of EMG signals with powerful and advanced methodologies is becoming an important requirement in biomedical engineering. The main reason for the interest in EMG signal analysis is in clinical diagnosis and biomedical applications. The field of management and rehabilitation of motor disability is identified as one of the important application areas. The shapes and firing rates of Motor Unit Action Potentials (MUAP) in EMG signals provide an important source of information for diagnosing neuromuscular disorders. \cite{reaz2006techniques}
+
+\section{Feature Extraction}
+The first step in ASR is to extract meaningful features from raw audio signals. Common features include Mel-frequency cepstral coefficients (MFCCs) and log-Mel spectrograms, which represent the spectral properties of speech. These features reduce the dimensionality of the input signal while retaining information relevant to phoneme recognition.
+
+\section{Deep Learning and End-to-End ASR}
+Traditional ASR systems used separate modules for acoustic and language modeling, often based on Hidden Markov Models (HMMs) and Gaussian Mixture Models (GMMs). Modern approaches rely on end-to-end deep learning models that directly map audio features to text. These models are more robust, scalable, and efficient.
+% \par
+% For Hardware Installation, Plug Grove - Base Shield to Seeeduino, then connect Grove - LED Bar to D8 and Grove - EMG Sensor to A0. Finally, track the three electrodes to your muscle, and keep a distance between each electrode. 
+
+
+%\input{Chapters/subsections/features}
+
+\section{Whisper and Self-Supervised Learning}
+In our project, we used a fine-tuned version of Whisper-small, a self-supervised model developed by OpenAI. This model is first trained using self-supervised learning on a massive multilingual dataset that includes both labelled and unlabelled audio-text pairs.  It enables model to generalize across many languages, including low-resource language like Nepali.It follows encoder-decoder architecture. 
+
+
+
+
+
+\begin{itemize}
+    \item Encoder: It processes the raw audio into high-level feature representations using convolution layers.
+
+    \item Decoder: A transformer-based decodr takes these representations and generates the corresponding text in to the target language.
+
+    \item Self-supervised learning enables effective use of unlabelled data, which is important for low-resource languages like Nepali.
+
+\end{itemize}
+
+
+\section{Nepali Characters and Grapheme Set}
+The output of our model is based on a character-level grapheme set, including all basic consonants and vowels of the Devanagari script used in Nepali, such as:
+\begin{itemize}
+    \item Consonants: क (ka), ख(kha), ग (ga), घ (gha), etc.
+    \item Vowels: अ (a), आ (aa), इ (i), ई (ii), उ (u), ऊ (uu), etc.
+\end{itemize}
+
+This makes the system capable of recognizing and transcribing a wide range of Nepali words accurately.
+
+
+\section{ Sequence-to-sequence Transformer architecture and AutoRegressive Decoding}
+ We use a sequence-to-sequence transformer architecture with autoregressive decoding to perform speech recognition. The model consists of an encoder that converts input audio (as mel-spectrograms) into high-level representations and a decoder that generates the corresponding text one token at a time. In autoregressive decoding, each token is generated based on the previously generated tokens, allowing the model to maintain context and coherence throughout the transcription. It does not require pre-aligned data or CTC loss function. It learns directly from audio-text pairs, making it highly effective for multilingual and low-resource language tasks like Nepali ASR.
+
+\section{Fine-Tuning on Nepali Dataset}
+We fine-tuned the Whisper-Small Model on a Nepali speech dataset from iamTangsang/OpenSLR54-Nepali-ASR. Fine-tuning was performed with the following configuration:
+\begin{itemize}
+    The training is managed using the hugging face trainer with the following statistics:\\
+ \textbf{Batch size:} 8 for training, 16 for evaluation\\
+ \textbf{learning rate :} 5e-5\\
+ \textbf{Mixed precision(FP16):} \\
+ \textbf{Epochs:}5
+ \textbf{Data split:} 80\%training and 20\% testing
+ \textbf{Evaluation strategy:} Every epoch 
+ \textbf{Logging:} Tensorboard integration for monitoring
+
+ 
+\end{itemize}
+
+ 
+
+
+% \input{Chapters/subsections/ModelEval}

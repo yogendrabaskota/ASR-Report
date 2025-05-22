@@ -1,0 +1,47 @@
+\renewcommand{\theequation}{Eq (\arabic{equation})}
+\subsection{Accuracy}
+It measures the proportion of correctly classified samples.
+\begin{equation}
+\label{eq:Accuracy}
+Accuracy= \frac{TP + TN}{N} \quad \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $TP$ represents True Positive.
+    \item  $TN$ represents True Negative.
+    \item $N$ represents Total number of samples
+\end{itemize}
+
+\subsection{Precision}
+It evaluates how many of the predicted positive cases are actually positive.  
+
+\begin{equation}
+\label{eq:Precision}
+Precision= \frac{TP}{TP + FP} \quad \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item  $FP$ represents False Positives.
+\end{itemize}
+  
+\subsection{Recall}
+It measures how many of the actual positive cases were correctly predicted.   
+
+\begin{equation}
+\label{eq:Recall}
+Recall= \frac{TP}{TP + FN} \quad \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item  $FP$ represents False Negatives.
+\end{itemize}
+
+\subsection{F1-Score}
+It is the harmonic mean of Precision and Recall, balancing the two.     
+\begin{equation}
+\label{eq:F1-Score}
+F1\text{-}Score= 2*\frac{Precision * Recall }{Precision + Recall} \quad \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}

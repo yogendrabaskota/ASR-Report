@@ -1,0 +1,20 @@
+% {chapter}{ABSTRACT}	
+	\tableofcontents
+	
+
+\makeatletter
+\def\@gobblesix#1#2#3#4#5#6{}
+\patchcmd{\@chapter}
+  {\chaptermark{#1}}
+  {\chaptermark{#1}\@gobblesix}
+  {}{}
+\makeatother
+	
+
+	{%
+		\let\oldnumberline\numberline%
+		\renewcommand{\numberline}{\figurename~\oldnumberline}%
+		\listoffigures%
+	}
+
+

@@ -1,0 +1,153 @@
+\renewcommand{\theequation}{Eq (\arabic{equation})}
+\subsection{Standard Deviation}
+Standard deviation is a statistical measure that quantifies the amount of variation or dispersion in a dataset. It measures the average distance between each data point and the mean of the dataset. In other words, it provides a measure of how spread out the data is around the mean.\par
+The formula for calculating the standard deviation, denoted by the symbol s for a sample, is as follows:
+\begin{equation}
+\label{eq:Standard Deviation}
+s = \sqrt{\frac{1}{{N-1}} \sum_{i=1}^{N} (x_i - \overline{x})^2} \quad  \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item $x_i$ represents each individual data point in the dataset.
+    \item $\overline{x}$ (x-bar) represents the sample mean.
+    \item $\Sigma$ denotes the sum of all the values.
+    \item $N$ represents the total number of data points in the population or sample.
+\end{itemize}
+
+\subsection{Root Mean Square}
+Root Mean Square (RMS), also known as quadratic mean, is a statistical measure that represents the square root of the mean of the squared values in a dataset. It is commonly used to quantify the magnitude or average value of a set of numbers, particularly when dealing with varying magnitudes or oscillating values.\par
+The formula to calculate the RMS is as follows:
+\begin{equation}
+\label{eq: Root Mean Square}
+RMS = \sqrt{\frac{{x_1^2 + x_2^2 + \ldots + x_n^2}}{{n}}}  \quad  \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots 
+\end{equation}
+
+
+\subsection{Minimum and Maximum}
+In time series analysis, the terms "maximum" and "minimum" refer to the highest and lowest values, respectively, observed in a given time series dataset. These values represent the extremes of the dataset and provide important insights into the behavior and range of the variable over time.
+
+\subsection{Slope Sign Change}
+Slope sign change refers to the occurrence of a change in the direction of the slope or trend of a dataset. It indicates a transition from a positive slope (increasing values) to a negative slope (decreasing values) or vice versa.
+
+\subsection{Kurtosis}
+Kurtosis is a statistical measure that quantifies the shape or peakedness of a probability distribution. It provides information about the tails and outliers of a dataset compared to a normal distribution.\par
+The formula for kurtosis on calculating it for a sample is:
+\begin{equation}
+\label{eq: Kurtosis}
+\text{Kurtosis} = \frac{1}{n} \sum_{i=1}^{n} \left(\frac{{X_i - \overline{X}}}{{s}}\right)^4 - 3 \quad  \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots 
+\end{equation}
+Where:
+\begin{itemize}
+    \item $n$ represents the sample size.
+    \item $\Sigma$ denotes the sum of all the values.
+    \item $X$ represents each individual value in the sample.
+    \item $\bar{x}$ (x-bar) represents the sample mean.
+    \item $s$ represents the sample standard deviation.
+\end{itemize}
+
+\subsection{Mean Absolute Deviation}
+Mean Absolute Deviation (MAD) is a statistical measure that quantifies the average absolute difference between each data point in a dataset and the dataset's mean. It provides information about the dispersion or variability of the dataset.\par
+The formula for Mean Absolute Deviation is as follows:
+\begin{equation}
+\label{eq: Mean Absolute Deviation}
+\text{MAD} = \frac{1}{n} \sum_{i=1}^{n} |X_i - \overline{X}| \quad  \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+Where:
+\begin{itemize}
+    \item $MAD$ represents the Mean Absolute Deviation.
+    \item $n$ represents the sample size.
+    \item $\Sigma$ denotes the sum of all the values.
+    \item $X$ represents each individual value in the sample.
+    \item $\bar{x}$ (x-bar) represents the sample mean
+\end{itemize}
+
+
+\subsection{Willison Amplitude}
+Willison Amplitude is a statistical measure that quantifies the number of zero-crossings or rapid changes in a time series signal. It is commonly used in signal processing and time series analysis to identify abrupt changes or events in the data.
+The formula for Willison Amplitude is as follows:
+\begin{equation}
+\label{eq: Willison Amplitude}
+\text{Willison Amplitude} = \text{Count of} \{i \, | \, |x[i] - x[i-1]| > \text{Threshold}\} \quad  \dots \dots \dots \dots  
+\end{equation}
+Where:
+\begin{itemize}
+    
+\item i  \text{represents the index of each data point in the time series signal.} 
+\item x[i]  \text{represents the value of the signal at index i.} 
+\item x[i-1]  \text{represents the value of the signal at index i-1.} 
+
+\end{itemize}
+
+\subsection{Waveform Length}
+Waveform Length is a feature used in signal processing and time series analysis to measure the cumulative sum of the absolute differences between consecutive data points in a signal. It provides a measure of the overall variation or complexity of the signal.
+\par
+The formula for Waveform Length is as follows:
+\begin{equation}
+\label{eq: Waveform Length}
+\text{Waveform Length} = \sum_{i=1}^{n} |i[i] - i[i-1]| \quad  \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+Where:
+\begin{itemize}
+    \item $i[i]$ represents the value of the signal at index $i$.
+    \item $i[i-1]$ represents the value of the signal at index $i-1$.
+\end{itemize}
+
+\subsection{Mean Absolute Value}
+Mean Absolute Value (MAV) is a measure used in signal processing and time series analysis to quantify the average magnitude of a signal. It provides an indication of the signal's overall amplitude or energy.
+\par
+The formula for Mean Absolute Value is as follows:
+\begin{equation}
+\label{eq: Mean Absolute Value}
+\text{MAV} = \frac{1}{N} \sum_{i=1}^{N} |i[i]| \quad  \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots \dots
+\end{equation}
+\begin{itemize}
+    \item N \textrm{ represents the total number of data points in the signal.}
+    \item i[i] \textrm{ represents the value of the signal at index }.
+\end{itemize}
+
+\subsection{Average Amplitude Change}
+The Average Amplitude Change is a time series feature that quantifies the average rate of change in the amplitude of a signal over a specific time period. It provides information about how the signal's amplitude varies over time.
+\par
+Here's the formula to calculate the average amplitude change:
+\begin{equation}
+\label{eq: Average Amplitude Change}
+\text{Average Amplitude Change} = \frac{1}{N-W+1} \sum_{t=W}^{N} \left| A[t] - A[t-W] \right| \quad  \dots \dots \dots \dots
+\end{equation}
+Where:
+\begin{itemize}
+    \item A[t] \textrm{ represents the amplitude value at time } t.
+    \item W \textrm{ is the size of the sliding window or the time period over which you want to calculate the average amplitude change.}
+    \item N \textrm{ is the total number of time points in the time series.}
+\end{itemize}
+
+\subsection{Zero Crossings}
+Zero Crossings is a common feature used in signal processing to quantify the number of times a signal crosses the zero-axis. It provides information about the rate of change and the number of sign changes in the signal.
+\par 
+The formula for calculating the Zero Crossings of a discrete-time signal is as follows:
+\begin{equation}
+\label{eq: Zero Crossings}
+\text{Zero Crossings} = \sum_{i=1}^{N-1} \mathbb{I}(x[i] \cdot x[i-1] < 0) \quad \dots \dots \dots  \dots \dots \dots  \dots \dots \dots
+\end{equation}
+Where:
+\begin{itemize}
+    \item N represents the total number of samples in the signal.
+    \item x[i] represents the value of the signal at index i.
+    \item I is the indicator function that returns 1 if the condition inside the parentheses is true (indicating a sign change), and 0 otherwise.
+\end{itemize}
+
+\subsection{Auto Regression}
+Autoregression (AR) is a statistical modeling technique used to analyze time series data by representing a variable as a linear combination of its previous values. It assumes that the current value of a variable can be predicted based on its past values.
+\par
+The autoregressive model of order p, denoted as AR(p), can be represented by the following formula:
+\begin{equation}
+\label{eq: Autoregression}
+X[t] = c + \sum_{i=1}^{p} \phi_i X[t-i] + \epsilon[t]  \quad \dots \dots \dots  \dots \dots \dots  \dots \dots \dots \dots \dots  \dots 
+\end{equation}
+Where:
+\begin{itemize}
+    \item c is a constant term (intercept).
+    \item $\phi_i$ denotes the autoregressive coefficients for lags i = 1 to p.
+    \item X[t-i] represents the value of the variable at time t minus i.
+    \item $\epsilon[t]$ represents the error term or residual at time t, which captures the part of the variable's value that is not explained by the autoregressive terms.
+\end{itemize}

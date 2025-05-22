@@ -1,0 +1,138 @@
+\ProvidesPackage{settings}
+
+%fonts-------------------------
+\usepackage{mathptmx}    %adobe times roman font
+\usepackage{amsmath,amssymb,amsfonts} %ams packages for math
+\usepackage{setspace} %for line spacing
+%page formatting------------------------------
+\usepackage[top=3.5cm,left=3.5cm,right=2cm,bottom=2cm]{geometry} %for margins
+\usepackage{graphicx}\graphicspath{{gfx/}} %to add images
+% \usepackage{subcaption} %for subfig.
+%table of content-----------------
+%\usepackage[nottoc]{tocbibind}
+
+%\usepackage[titles]{tocloft}
+%\usepackage{calc}
+%\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+%\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+%manage font of headings in toc----------
+%\renewcommand\cftchapfont{\normalfont}
+%\renewcommand\cftchappagefont{\normalfont}
+\AtBeginDocument{\renewcommand\contentsname{TABLE OF CONTENTS}}
+%adding CHAPTER ahead in toc--------------
+\usepackage{fmtcount}
+\usepackage[dotinlabels]{titletoc}
+\titlecontents{chapter}% <section-type>
+ [0pt]% <left>
+ {}% <above-code>
+{\MakeUppercase\chaptername\ \thecontentslabel: }% <numbered-entry-format>
+ {}% <numberless-entry-format>
+ {\titlerule*[1pc]{.}\contentspage}
+% {\hfill\contentspage}% <filler-page-format>
+% converting CHAPTER 1 INTO CHAPTER ONE----------------
+% \patch \@makechapterhead and \@chapter
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@makechapterhead}
+  {\thechapter}
+  {\NUMBERstring{chapter}}
+  {}{}
+\patchcmd{\@chapter}
+  {\protect\numberline{\thechapter}}
+  {\protect\numberline{\protect\NUMBERstringnum{\arabic{chapter}}}}
+  {}{}
+\makeatother
+%indentation 
+%\usepackage{tocloft}
+%\setlength{\cftsecindent}{0pt}% Remove indent for \section
+%\setlength{\cftsubsecindent}{0pt}% Remove indent for subsection
+
+%CHAPTER ONE:INTRODUCTION-------------------
+\usepackage{titlesec}
+%for removing space before chapter headings
+\makeatletter
+\def\ttl@mkchap@i#1#2#3#4#5#6#7{%
+    \ttl@assign\@tempskipa#3\relax\beforetitleunit
+    \vspace{\@tempskipa}%<<<<<< REMOVE THE * AFTER \vspace
+    \global\@afterindenttrue
+    \ifcase#5 \global\@afterindentfalse\fi
+    \ttl@assign\@tempskipb#4\relax\aftertitleunit
+    \ttl@topmode{\@tempskipb}{%
+        \ttl@select{#6}{#1}{#2}{#7}}%
+    \ttl@finmarks  % Outside the box!
+    \@ifundefined{ttlp@#6}{}{\ttlp@write{#6}}}
+\makeatother
+\usepackage{fmtcount} 
+\titleformat{\chapter}[hang]{\centering\normalfont\bfseries}{\MakeUppercase\chaptertitlename\ \NUMBERstring{chapter}:}{0.5em}{}
+\titleformat{\section}
+{\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+{\normalfont\fontsize{12}{15}\bfseries}{\thesubsection}{1em}{}
+%list of figures and tables---------------------
+\renewcommand*\listfigurename{\MakeUppercase{List of figures}}
+\renewcommand*\listtablename{\MakeUppercase{List of tables}} 
+%Spacing for headings---------------------------
+\titlespacing*{\chapter}{0pt}{0pt}{12pt}
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+\setlength{\parindent}{0pt}
+\usepackage{parskip}
+\setlength{\parskip}{6pt}
+%references------------------------
+\usepackage{plain}
+\bibliographystyle{plain}
+
+% \usepackage{apacite}
+% \bibliographystyle{apacite}
+%figures----------------------
+\usepackage{caption}
+
+\captionsetup{justification=raggedright,singlelinecheck=false} 
+%aligning the caption to left
+\usepackage{float}
+%\setlength{\mathindent}{0pt}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{comment}
+%for editing eqn numbering style to Equation ----------
+% \numberwithin{equation}{chapter}
+% This line resets equation numbering when starting a new section.
+\renewcommand{\theequation}{Equation \thechapter.\arabic{equation}} 
+% This line ads "Equation" in front of your equation numbering.
+%for removing brackets in eqn numbering------------
+\makeatletter
+\let\oldtagform@\tagform@
+\renewcommand\tagform@[1]{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
+\renewcommand{\eqref}[1]{\textup{\oldtagform@{\ref{#1}}}}
+\makeatother
+
+
+
+
+%LIST OF SYMBOLS-------------------
+\usepackage[intoc, english]{nomencl}
+\renewcommand{\nomname}{LIST OF SYMBOLS}
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+%for table of contents with Chapter One ------
+
+
+%for MATLAB code
+%\usepackage{matlab-prettifier}
+
+%\usepackage[autolinebreaks]{mcode}
+\usepackage{listings}
+ 
+%appendix-------------
+\usepackage[toc,page]{appendix}
+
+%incoorporating drawings in appendix
+\usepackage{pdfpages}
+
+
+%centering captions
+\usepackage[justification=centering]{caption}
+
+

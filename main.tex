@@ -1,0 +1,52 @@
+\documentclass[a4paper,12 pt]{report}
+\usepackage{settings}
+\usepackage{adjustbox}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{nomencl}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage[numbers]{natbib}
+
+
+\DeclareUnicodeCharacter{0301}{\'{a}}
+\makenomenclature
+
+\begin{document}
+	\onehalfspacing
+\pagenumbering{roman}
+
+\justifying 
+	\input{Preliminary/hard_cover_page}
+
+	\input{Preliminary/Copyright}
+
+        \input{Preliminary/Approval_page}
+
+	\input{Preliminary/Abstract}
+        \input{Preliminary/Acknowledgements}
+        
+        \input{Preliminary/table_of_content}
+       % \input{Preliminary/List_of_Symbols}
+        
+        \input{Preliminary/List_of_Abbreviations}
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1} 
+	\input{Chapters/Introduction}
+        \input{Chapters/Background_Theory}
+         \input{Chapters/literature1}
+         
+        \input{Chapters/Methodology}
+        \input{Chapters/Results}
+        \input{Chapters/Conclusion}
+        
+
+\renewcommand{\bibname}{REFERENCES}
+
+
+\bibliography{REFERENCES}
+\input{Appendix/Appendix_Code}
+
+\end{document}
